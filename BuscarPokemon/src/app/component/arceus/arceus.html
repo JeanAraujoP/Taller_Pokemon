@@ -19,7 +19,6 @@
         <li>Altura: {{ obtenerAltura() }} m</li>
         <li>Peso: {{ obtenerPeso() }} kg</li>
         <li *ngFor="let stat of datos.stats">
-          {{ stat.stat.name }}: {{ stat.base_stat }}
         </li>
       </ul>
     </div>
