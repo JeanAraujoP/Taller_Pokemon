@@ -5,9 +5,6 @@
   <div *ngIf="mostrarNombre">
     <p>{{ nombre }}</p>
 
-    <p *ngIf="cargando">Cargando...</p>
-    <p *ngIf="errorDatos">No se pudo conectar con la PokeAPI. Verifica tu conexion a internet.</p>
-
     <div *ngIf="datos">
       <img
         *ngIf="!errorImagen"
@@ -17,7 +14,6 @@
         height="150"
         (error)="onImageError()"
       />
-      <p *ngIf="errorImagen">No se pudo cargar la imagen del Pokemon.</p>
 
       <ul class="stats">
         <li>Altura: {{ obtenerAltura() }} m</li>
