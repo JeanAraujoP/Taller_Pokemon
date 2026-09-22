@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface PokemonTarjeta {
   id?: number;
@@ -44,16 +45,23 @@ export class PokemonStorageService {
     this.sincronizarStorage(actualizados);
   }
 
-  actualizarPokemon(index: number, pokemon: PokemonTarjeta): void {
-    const actualizados = [...this.misPokemons()];
-    if (index >= 0 && index < actualizados.length) {
-      actualizados[index] = pokemon;
-      this.sincronizarStorage(actualizados);
-    }
+  actualizarFavorito(id: number): void {
+    const actualizados = this.misPokemons().map(poke => {
+      if (poke.id === id) {
+        return { ...poke, esFavorito: !poke.esFavorito };
+      }
+      return poke;
+    });
+    this.sincronizarStorage(actualizados);
   }
 
-  eliminarPokemon(index: number): void {
-    const actualizados = this.misPokemons().filter((_, i) => i !== index);
-    this.sincronizarStorage(actualizados);
+  liberarPokemon(id: number): void {
+    const filtrado = this.misPokemons().filter(poke => poke.id !== id);
+    this.sincronizarStorage(filtrado);
+  }
+
+  consultarPokemon(name: string): Observable<any> {
+    const apiUrl = 'https://pokeapi.co/api/v2/pokemon';
+    return this.http.get<any>(`${apiUrl}/${name.toLowerCase()}`);
   }
 }

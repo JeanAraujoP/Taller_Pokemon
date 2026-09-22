@@ -1,23 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { PokemonDetallesComponent } from './pokemon-detalles.component';
-
-describe('PokemonDetallesComponent', () => {
-  let component: PokemonDetallesComponent;
-  let fixture: ComponentFixture<PokemonDetallesComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [PokemonDetallesComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(PokemonDetallesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+@Component({
+  selector: 'app-pokemon-detalles',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './pokemon-detalles.html',
+  styleUrl: './pokemon-detalles.component.css',
+})
+export class PokemonDetallesComponent implements OnInit {
+  ngOnInit(): void {}
+}

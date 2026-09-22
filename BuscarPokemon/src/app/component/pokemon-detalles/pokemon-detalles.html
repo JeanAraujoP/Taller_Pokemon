@@ -1,0 +1,19 @@
+<div>
+    @if (cargando) {
+        <h2> Cargando datos ... espere en línea por favor. </h2>
+    } @else if (pokemonData) {
+        <div>
+            <h1> {{ pokemonData.name | titlecase }} </h1>
+            <img [src]="pokemonData.sprites?.other?.['official-artwork']?.front_default" [alt]="pokemonData.name">
+            <h3> Estadísticas Base </h3>
+            <ul>
+                @for (stat of pokemonData.stats; track stat.stat.name) {
+                    <li><strong> {{ stat.stat.name }} : </strong> {{ stat.base_stat }} </li>
+                }
+            </ul>
+            <a routerLink="/"> Volver a la lista</a>
+        </div>
+    } @else {
+        <h2> ¡El Pokémon no fue encontrado! </h2>
+    }
+</div>
