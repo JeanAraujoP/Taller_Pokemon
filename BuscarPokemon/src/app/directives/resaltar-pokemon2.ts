@@ -1,4 +1,4 @@
-import { ResaltarPokemonDirective } from './resaltar-pokemon.directive';
+import { ResaltarPokemonDirective } from './resaltar-pokemon';
 
 describe('ResaltarPokemonDirective', () => {
   it('should create an instance', () => {

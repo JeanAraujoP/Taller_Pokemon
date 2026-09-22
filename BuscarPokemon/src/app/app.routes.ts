@@ -7,6 +7,8 @@ import { Charmander } from './component/charmander/charmander';
 import { Squirtle } from './component/squirtle/squirtle';
 import { Arceus } from './component/arceus/arceus';
 import { Eevee } from './component/eevee/eevee';
+import { PokemonDetalle } './component/pokemon-detalles/pokemon-detalles';
+import { PokemonLista } './component/pokemon-listar/pokemon-listar';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'registro', pathMatch: 'full' },
@@ -18,5 +20,7 @@ export const routes: Routes = [
   { path: 'squirtle', component: Squirtle },
   { path: 'arceus', component: Arceus },
   { path: 'eevee', component: Eevee },
+  { path: 'detalle', component: PokemonDetalle },
+  { path: 'lista', component: PokemonLista },
   { path: '**', redirectTo: 'registro' }
 ];  
